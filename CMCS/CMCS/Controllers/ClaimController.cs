@@ -44,10 +44,13 @@ namespace CMCS.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Calculate the total amount for the claim
                 claim.CalculateTotalAmount();
 
+                // Check if a supporting document is uploaded
                 if (claim.SupportingDocument != null && claim.SupportingDocument.Length > 0)
                 {
+                    // Save the supporting document to the uploads folder
                     var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
                     var filePath = Path.Combine(uploadsFolder, claim.SupportingDocument.FileName);
 
@@ -67,8 +70,30 @@ namespace CMCS.Controllers
                     return View(claim);
                 }
 
+                // Determine the claim status based on HoursWorked
+                if (claim.HoursWorked >= 15)
+                {
+                    // Mark claim as pending for admin review
+                    claim.Status = "Pending";
+                }
+                else if (claim.HoursWorked > 0 && claim.HoursWorked < 15)
+                {
+                    // Automatically approve the claim
+                    claim.Status = "Approved";
+                }
+                else if (claim.HoursWorked <= 0)
+                {
+                    // Automatically deny the claim
+                    claim.Status = "Denied";
+                }
+
+                // Assign a unique ID to the claim
                 claim.ID = Claims.Count > 0 ? Claims.Max(c => c.ID) + 1 : 1;
+
+                // Add the claim to the in-memory collection
                 Claims.Add(claim);
+
+                // Indicate success in the view
                 ViewBag.IsSuccess = true;
 
                 return View(claim);
@@ -76,6 +101,7 @@ namespace CMCS.Controllers
 
             return View(claim);
         }
+
 
         [Authorize(Roles = "Lecturer")]  // Both lecturers and admins can view claims
         public IActionResult ViewClaims()
@@ -121,5 +147,33 @@ namespace CMCS.Controllers
 
             return RedirectToAction("ApproveClaims");
         }
+        // POST: ApproveClaim
+        [HttpPost]
+        [Authorize(Roles = "Admin")] // Only admins can approve claims
+        public IActionResult ApproveClaim(int id)
+        {
+            var claim = Claims.FirstOrDefault(c => c.ID == id);
+            if (claim != null)
+            {
+                claim.Status = "Approved";
+            }
+
+            return RedirectToAction("ApproveClaims");
+        }
+
+        // POST: DenyClaim
+        [HttpPost]
+        [Authorize(Roles = "Admin")] // Only admins can deny claims
+        public IActionResult DenyClaim(int id)
+        {
+            var claim = Claims.FirstOrDefault(c => c.ID == id);
+            if (claim != null)
+            {
+                claim.Status = "Denied";
+            }
+
+            return RedirectToAction("ApproveClaims");
+        }
+
     }
 }
