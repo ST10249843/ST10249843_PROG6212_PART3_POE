@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Login/Register";
+    var activeTab = ViewBag.ActiveTab.ToString();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - CMCS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> <!-- Font Awesome -->
+    <style>
+        body {
+            background-color: #3e2723; 
+            color: #fff;  
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: #fff;
+            background-color: #3e2723;  
+            border-color: #3e2723;  
+        }
+
+        .nav-tabs .nav-link {
+            border-color: #ced4da; 
+            color: #3e2723; 
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);  
+            color: #3e2723;  
+            border-radius: 8px; 
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1); 
+            padding: 40px;  
+            max-width: 900px;  
+            margin: 40px auto;  
+        }
+
+        .form-label {
+            color: #3e2723;  
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.8);  
+            border-color: #3e2723;  
+        }
+
+        .btn-primary {
+            background-color: #3e2723;  
+            border-color: #3e2723;  
+        }
+
+            .btn-primary:hover {
+                background-color: #2c1b19; 
+                border-color: #2c1b19; 
+            }
+
+        .text-danger {
+            color: #dc3545;  
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #3e2723;  
+        }
+
+        /*
+        Author: FreeFrontend
+        Date: June 13, 2023
+        Title: CSS Login Forms
+        Code my ideas for the registration and login
+        Type: Source Code
+        Availability: FreeFrontend, https://freefrontend.com/css-login-forms/
+        */
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Login/Register</h2>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @(activeTab == "login" ? "" : "active")" id="register-tab" data-bs-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="@(activeTab == "login" ? "false" : "true")">Register</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link @(activeTab == "login" ? "active" : "")" id="login-tab" data-bs-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="@(activeTab == "login" ? "true" : "false")">Login</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+             <div class="tab-pane fade @(activeTab == "login" ? "" : "show active")" id="register" role="tabpanel" aria-labelledby="register-tab">
+                @model CMCS.Models.User
+
+                @using (Html.BeginForm("LoginRegister", "Account", FormMethod.Post))
+                {
+                    @Html.Hidden("actionType", "Register")
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Added Validation Summary -->
+
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Name, "Name", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Surname, "Surname", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Surname, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Email, "Email", new { @class = "form-label" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Password, "Password", new { @class = "form-label" })
+                        <div class="password-container">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "register-password" })
+                            <i class="toggle-password fas fa-eye" id="toggle-register-password" onclick="togglePassword('register-password', this)"></i>
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="mb-3">
+                        @Html.LabelFor(m => m.Role, "Role", new { @class = "form-label" })
+                        @Html.DropDownListFor(m => m.Role, new SelectList(new List<SelectListItem>
+                    {
+                    new SelectListItem { Value = "Lecturer", Text = "Lecturer" },
+                    new SelectListItem { Value = "Admin", Text = "Admin" }
+                    }, "Value", "Text"), "Select a role", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                }
+            </div>
+
+             <div class="tab-pane fade @(activeTab == "login" ? "show active" : "")" id="login" role="tabpanel" aria-labelledby="login-tab">
+                @using (Html.BeginForm("LoginRegister", "Account", FormMethod.Post))
+                {
+                    @Html.Hidden("actionType", "Login")
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Added Validation Summary -->
+
+                    <div class="mb-3">
+                        @Html.Label("email", "Email", new { @class = "form-label" })
+                        @Html.TextBox("email", null, new { @class = "form-control" })
+                        @Html.ValidationMessage("email", "", new { @class = "text-danger" }) <!-- Add validation message -->
+                    </div>
+                    <div class="mb-3">
+                        @Html.Label("password", "Password", new { @class = "form-label" })
+                        <div class="password-container">
+                            @Html.Password("password", null, new { @class = "form-control", id = "login-password" })
+                            <i class="toggle-password fas fa-eye" id="toggle-login-password" onclick="togglePassword('login-password', this)"></i>
+                        </div>
+                        @Html.ValidationMessage("password", "", new { @class = "text-danger" }) <!-- Add validation message -->
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            const isPasswordVisible = input.type === "text";
+            input.type = isPasswordVisible ? "password" : "text";
+            icon.classList.toggle("fa-eye-slash", isPasswordVisible);
+        }
+    </script>
+</body>
+</html>

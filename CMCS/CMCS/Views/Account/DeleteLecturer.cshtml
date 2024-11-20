@@ -1,0 +1,16 @@
+﻿@model CMCS.Models.User
+
+@{
+    ViewData["Title"] = "Delete Lecturer";
+}
+
+<h1>Delete Lecturer</h1>
+
+<p>Are you sure you want to delete the lecturer <strong>@Model.Name @Model.Surname</strong>?</p>
+
+<form asp-action="DeleteLecturer" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="ListLecturers" class="btn btn-secondary">Cancel</a>
+</form>

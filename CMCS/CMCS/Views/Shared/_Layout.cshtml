@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CMCS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CMCS.styles.css" asp-append-version="true" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://static01.nyt.com/images/2022/10/31/opinion/30paul1/30paul1-superJumbo.jpg');
+            no-repeat center center fixed;
+            background-size: auto;
+            color: #fff;
+            overflow-x: hidden;  
+            border: none;
+        }
+
+        .sidebar {
+            height: 100vh;  
+            background-color: rgba(51, 51, 51, 0.95);  
+            color: #fff;
+            padding-top: 20px;
+            position: fixed; 
+            top: 0;
+            left: -250px;  
+            width: 250px;
+            transition: left 0.3s ease;  
+        }
+
+            .sidebar.show {
+                left: 0;  
+            }
+
+            .sidebar .nav-link {
+                color: #fff;
+            }
+
+                .sidebar .nav-link:hover {
+                    color: rosybrown;
+                }
+
+                .sidebar .nav-link.active {
+                    background-color: brown;
+                    color: #fff;
+                }
+
+        .btn-logout {
+            border-color: #dc3545;
+            color: #fff;
+        }
+
+        main {
+            background-color: non;  
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            margin-left: 250px;  
+            min-height: calc(100vh - 40px); 
+            transition: margin-left 0.3s ease;  
+        }
+
+        .main-content {
+            margin-left: 0;  
+        }
+
+            .main-content.sidebar-open {
+                margin-left: 250PX;  
+            }
+
+        .toggle-sidebar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: left 0.3s ease; 
+        }
+
+            .toggle-sidebar.open {
+                left: 270px;  
+            }
+
+            .toggle-sidebar:hover {
+                background-color: rgba(51, 51, 51, 1);
+            }
+
+            .toggle-sidebar::before {
+                content: '≡';  
+                font-size: 24px;
+            }
+    </style>
+</head>
+<body>
+    <button class="toggle-sidebar" id="toggleSidebar"></button>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-sticky">
+            <h1 class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:saddlebrown">CMCS</h1>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Claim" asp-action="ViewClaims">View Claims</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Claim" asp-action="ApproveClaims">Approve Claims</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="ListLecturers">List of Lecturers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LoginRegister">Login/Register</a>
+                </li>
+                <li class="nav-item mt-auto">
+                    <form method="post" action="@Url.Action("Logout", "Account")" class="nav-link">
+                        <button type="submit" class="btn btn-logout w-100">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content" role="main">
+        <div class="pt-3 pb-2 mb-3">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $('#toggleSidebar').click(function () {
+                $('#sidebar').toggleClass('show');
+                $('.main-content').toggleClass('sidebar-open');
+                $(this).toggleClass('open');
+            });
+        });
+    </script>
+</body>
+</html>

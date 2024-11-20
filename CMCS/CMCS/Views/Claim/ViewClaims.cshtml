@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CMCS.Models.Claim>
+
+@{
+    ViewData["Title"] = "All Claims";
+}
+
+<h2>All Claims</h2>
+
+<a href="@Url.Action("SubmitClaim", "Claim")"
+   style="background-color: #3e2723; border-color: #3e2723; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; margin-bottom: 10px;"
+   onmouseover="this.style.backgroundColor='#2c1b19'; this.style.borderColor='#2c1b19';"
+   onmouseout="this.style.backgroundColor='#3e2723'; this.style.borderColor='#3e2723';">
+    Submit a Claim
+</a>
+
+<br />
+<br />
+
+@*
+Author: W3Schools
+Date: N/A
+Title: How To Filter Elements
+Type: Source Code
+Availability: W3Schools, https://www.w3schools.com/howto/howto_js_filter_elements.asp
+*@
+
+ <div class="mb-3">
+    <label for="claimStatus" class="form-label">Filter by Status:</label>
+    <select id="claimStatus" class="form-select" onchange="filterClaims()">
+        <option value="all">All</option>
+        <option value="pending">Pending</option>
+        <option value="approved">Approved</option>
+        <option value="denied">Denied</option>
+    </select>
+</div>
+
+<table class="table table-bordered table-striped" style="background-color: white;" id="claimsTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Module</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Total Amount</th>
+            <th>Date of Submission</th>
+            <th>Status</th>
+            <th>Supporting Document</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr class="claim-row" data-status="@claim.Status.ToLower()">
+                <td>@claim.Name</td>
+                <td>@claim.Surname</td>
+                <td>@claim.Module</td>
+                <td>@claim.HoursWorked hours</td>
+                <td>R @claim.HourlyRate</td>
+                <td>R @claim.TotalAmount</td>
+                <td>
+                    Date: @claim.DateOfSubmission.ToString("ddd, dd MMMM yyyy")<br />
+                    Time: @DateTime.Now.ToString("hh:mm tt")
+                </td>
+                <td>@claim.Status</td>
+                <td>
+                    @if (claim.SupportingDocument != null)
+                    {
+                        <a href="@Url.Content("~/uploads/" + claim.SupportingDocument.FileName)" target="_blank">@claim.SupportingDocument.FileName</a>
+                    }
+                    else
+                    {
+                        <span>No Document</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function filterClaims() {
+        var statusFilter = document.getElementById("claimStatus").value;
+        var claimRows = document.querySelectorAll(".claim-row");
+
+        claimRows.forEach(function (row) {
+            if (statusFilter === "all" || row.getAttribute("data-status") === statusFilter) {
+                row.style.display = ""; 
+            } else {
+                row.style.display = "none";
+            }
+        });
+    }
+</script>

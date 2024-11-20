@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CMCS.Models.Claim>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Approve Claims - CMCS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+    </style>
+</head>
+<body>
+    <h1 style="color:white">Approve Claims</h1>
+    <div class="container">
+        <table class="table table-bordered table-striped" style="background-color: white;">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Module</th>
+                    <th>Hours Worked</th>
+                    <th>Hourly Rate</th>
+                    <th>Total Amount</th>
+                    <th>Date of Submission</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var claim in Model)
+                {
+                    <tr>
+                        <td>@claim.Name</td>
+                        <td>@claim.Surname</td>
+                        <td>@claim.Module</td>
+                        <td>@claim.HoursWorked</td>
+                        <td>R @claim.HourlyRate</td>
+                        <td>R @claim.TotalAmount</td>
+                        <td>@claim.DateOfSubmission.ToShortDateString()</td>
+                        <td>@claim.Status</td>
+                        <td>
+                            <form method="post" action="@Url.Action("Approve", "Claim")" class="d-inline">
+                                <input type="hidden" name="claimId" value="@claim.ID" />
+                                <button type="submit" class="btn btn-success">Approve</button>
+                            </form>
+                            <form method="post" action="@Url.Action("Deny", "Claim")" class="d-inline">
+                                <input type="hidden" name="claimId" value="@claim.ID" />
+                                <button type="submit" class="btn btn-danger">Deny</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
