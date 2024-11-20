@@ -96,7 +96,7 @@ namespace CMCS.Controllers
 
         public IActionResult ListLecturers()
         {
-            if (!User.IsInRole("Admin")) // Check if the user is not an admin
+            if (!User.IsInRole("HR")) // Check if the user is not an admin
             {
                 TempData["ErrorMessage"] = "Access Denied! You do not have permission to access this resource.";
                 return RedirectToAction("Index", "Home"); // Redirect to the home page or the appropriate page
@@ -106,7 +106,7 @@ namespace CMCS.Controllers
             return View(users); // Pass the model to the view
         }
 
-        [Authorize(Roles = "Admin")]  // Only admins can approve claims
+        [Authorize(Roles = "HR")]  // Only HR can approve claims
         public IActionResult EditLecturer(int id)
         {
             var user = Users.FirstOrDefault(u => u.Id == id);
@@ -118,7 +118,7 @@ namespace CMCS.Controllers
             return View(user); // Pass the user to the edit view
         }
 
-        [Authorize(Roles = "Admin")]  // Only admins can approve claims
+        [Authorize(Roles = "HR")]  // Only HR can approve claims
         [HttpPost]
         public IActionResult EditLecturer(User updatedUser)
         {
@@ -136,7 +136,7 @@ namespace CMCS.Controllers
             return RedirectToAction("ListLecturers"); // Redirect back to the list of lecturers
         }
 
-        [Authorize(Roles = "Admin")]  // Only admins can approve claims
+        [Authorize(Roles = "HR")]  // Only HR can approve claims
         // GET: Delete a lecturer
         public IActionResult DeleteLecturer(int id)
         {
@@ -149,7 +149,7 @@ namespace CMCS.Controllers
             return View(user); // Confirm deletion
         }
 
-        [Authorize(Roles = "Admin")]  // Only admins can approve claims
+        [Authorize(Roles = "HR")]  // Only HR can approve claims
         // POST: Confirm delete
         [HttpPost, ActionName("DeleteLecturer")]
         public IActionResult ConfirmDeleteLecturer(int id)

@@ -138,7 +138,8 @@
                         @Html.DropDownListFor(m => m.Role, new SelectList(new List<SelectListItem>
                     {
                     new SelectListItem { Value = "Lecturer", Text = "Lecturer" },
-                    new SelectListItem { Value = "Admin", Text = "Admin" }
+                    new SelectListItem { Value = "Admin", Text = "Admin" },
+                    new SelectListItem { Value = "HR", Text = "HR" }
                     }, "Value", "Text"), "Select a role", new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
                     </div>
@@ -150,12 +151,12 @@
                 @using (Html.BeginForm("LoginRegister", "Account", FormMethod.Post))
                 {
                     @Html.Hidden("actionType", "Login")
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) <!-- Added Validation Summary -->
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" }) 
 
                     <div class="mb-3">
                         @Html.Label("email", "Email", new { @class = "form-label" })
                         @Html.TextBox("email", null, new { @class = "form-control" })
-                        @Html.ValidationMessage("email", "", new { @class = "text-danger" }) <!-- Add validation message -->
+                        @Html.ValidationMessage("email", "", new { @class = "text-danger" }) 
                     </div>
                     <div class="mb-3">
                         @Html.Label("password", "Password", new { @class = "form-label" })
@@ -163,7 +164,7 @@
                             @Html.Password("password", null, new { @class = "form-control", id = "login-password" })
                             <i class="toggle-password fas fa-eye" id="toggle-login-password" onclick="togglePassword('login-password', this)"></i>
                         </div>
-                        @Html.ValidationMessage("password", "", new { @class = "text-danger" }) <!-- Add validation message -->
+                        @Html.ValidationMessage("password", "", new { @class = "text-danger" }) 
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 }
