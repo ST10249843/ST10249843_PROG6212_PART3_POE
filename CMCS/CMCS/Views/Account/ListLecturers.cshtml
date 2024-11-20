@@ -55,18 +55,18 @@ Availability: W3Schools, https://www.w3schools.com/css/css_website_layout.asp
         </tr>
     </thead>
     <tbody>
-        @foreach (var user in Model)
+        @foreach (var Lecturer in Model)
         {
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Name</td>
-                <td>@user.Surname</td>
-                <td>@user.Email</td>
-                <td>@user.Role</td>
+                <td>@Lecturer.Id</td>
+                <td>@Lecturer.Name</td>
+                <td>@Lecturer.Surname</td>
+                <td>@Lecturer.Email</td>
+                <td>@Lecturer.Role</td>
                 <td>
                     <!-- Edit and Delete buttons -->
-                    <a asp-controller="Account" asp-action="EditLecturer" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
-                    <a asp-controller="Account" asp-action="DeleteLecturer" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+                    <a asp-controller="Account" asp-action="EditLecturer" asp-route-id="@Lecturer.Id" class="btn btn-primary">Edit</a>
+                    <a asp-controller="Account" asp-action="DeleteLecturer" asp-route-id="@Lecturer.Id" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         }

@@ -96,14 +96,19 @@ namespace CMCS.Controllers
 
         public IActionResult ListLecturers()
         {
-            if (!User.IsInRole("HR")) // Check if the user is not an admin
+            // Check if the current user is not in the HR role
+            if (!User.IsInRole("HR"))
             {
+                // Set error message and redirect to Home if the user is not authorized
                 TempData["ErrorMessage"] = "Access Denied! You do not have permission to access this resource.";
-                return RedirectToAction("Index", "Home"); // Redirect to the home page or the appropriate page
+                return RedirectToAction("Index", "Home");
             }
-            // Ensure the model is correct
-            List<User> users = Users.ToList(); // Ensure this is the correct list of users
-            return View(users); // Pass the model to the view
+
+            // Filter the users to include only those with the "Lecturer" role
+            List<User> lecturers = Users.Where(u => u.Role == "Lecturer").ToList();
+
+            // Pass the filtered list of lecturers to the view
+            return View(lecturers);
         }
 
         [Authorize(Roles = "HR")]  // Only HR can approve claims
