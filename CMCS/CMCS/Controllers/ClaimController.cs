@@ -13,18 +13,24 @@ namespace CMCS.Controllers
     {
         // Static list to simulate a data source
         public static readonly List<Claim> Claims = new List<Claim>();
+      
+            private readonly ApplicationDbContext _context;
 
+            public ClaimController(ApplicationDbContext context)
+            {
+                _context = context;
+            }
 
-        /*
-        Author: Microsoft
-        Date: 07/14/2023
-        Title: Role-based authorization in ASP.NET Core
-        Code version: ASP.NET Core 8.0
-        Type: Source Code
-        Availability: Microsoft Learn, https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
-        */
+            /*
+            Author: Microsoft
+            Date: 07/14/2023
+            Title: Role-based authorization in ASP.NET Core
+            Code version: ASP.NET Core 8.0
+            Type: Source Code
+            Availability: Microsoft Learn, https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+            */
 
-        [Authorize(Roles = "Lecturer")]  // Only lecturers can access this
+            [Authorize(Roles = "Lecturer")]  // Only lecturers can access this
         public IActionResult SubmitClaim()
         {
             ViewBag.IsSuccess = (bool?)null;

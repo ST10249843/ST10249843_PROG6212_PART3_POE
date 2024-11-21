@@ -27,6 +27,12 @@ namespace CMCS.Controllers
         private static User CurrentUser = null;
         private static List<CMCS.Models.Claim> Claims = new List<CMCS.Models.Claim>();  // Your custom Claim class
 
+        private readonly ApplicationDbContext _context;
+
+        public AccountController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public IActionResult LoginRegister(string tab)
         {

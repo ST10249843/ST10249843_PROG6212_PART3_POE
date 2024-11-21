@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using CMCS.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using CMCS.Models;
 
 namespace CMCS
 {
@@ -23,6 +24,10 @@ namespace CMCS
             ConfigureServices(builder.Services);
 
             var app = builder.Build();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("CMCSContextConnection")));
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

@@ -51,5 +51,9 @@ namespace CMCS.Models
         {
             TotalAmount = HoursWorked * HourlyRate;
         }
+
+        public int UserId { get; set; }
+        public User User { get; set; }  // Navigation property
+
     }
 }
