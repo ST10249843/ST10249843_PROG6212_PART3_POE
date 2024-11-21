@@ -3,32 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\account\\listlecturers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\account\\listlecturers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\account\\loginregister.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\account\\loginregister.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\claim\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\claim\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\claim\\approveclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\claim\\approveclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\claim\\submitclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\claim\\submitclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|c:\\users\\sajan\\desktop\\2024\\sem 2\\prog 6212\\poe\\cmcs\\cmcs\\views\\account\\listlecturers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{148AAA8C-0809-4C00-8CD1-582FC19D9767}|CMCS\\CMCS.csproj|solutionrelative:cmcs\\views\\account\\listlecturers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,89 +58,68 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ListLecturers.cshtml",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\ListLecturers.cshtml",
-              "RelativeDocumentMoniker": "CMCS\\Views\\Account\\ListLecturers.cshtml",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\ListLecturers.cshtml",
-              "RelativeToolTip": "CMCS\\Views\\Account\\ListLecturers.cshtml",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEQAAABjAAAA",
+              "DocumentIndex": 2,
+              "Title": "SubmitClaim.cshtml",
+              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\SubmitClaim.cshtml",
+              "RelativeDocumentMoniker": "CMCS\\Views\\Claim\\SubmitClaim.cshtml",
+              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\SubmitClaim.cshtml",
+              "RelativeToolTip": "CMCS\\Views\\Claim\\SubmitClaim.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T12:21:26.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "CMCS\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "CMCS\\Controllers\\AccountController.cs",
-              "ViewState": "AQIAAFgAAAAAAAAAAIAwwHAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:41:18.508Z",
+              "WhenOpened": "2024-11-21T12:22:04.555Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Models\\User.cs",
-              "RelativeDocumentMoniker": "CMCS\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Models\\User.cs",
-              "RelativeToolTip": "CMCS\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Title": "Claim.cs",
+              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Models\\Claim.cs",
+              "RelativeDocumentMoniker": "CMCS\\Models\\Claim.cs",
+              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Models\\Claim.cs",
+              "RelativeToolTip": "CMCS\\Models\\Claim.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T11:31:52.505Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginRegister.cshtml",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\LoginRegister.cshtml",
-              "RelativeDocumentMoniker": "CMCS\\Views\\Account\\LoginRegister.cshtml",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\LoginRegister.cshtml",
-              "RelativeToolTip": "CMCS\\Views\\Account\\LoginRegister.cshtml",
-              "ViewState": "AQIAAJYAAAAAAAAAAAAAAKYAAABgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T11:13:02.465Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "CMCS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "CMCS\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHEAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T11:12:13.6Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApproveClaims.cshtml",
-              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\ApproveClaims.cshtml",
-              "RelativeDocumentMoniker": "CMCS\\Views\\Claim\\ApproveClaims.cshtml",
-              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\ApproveClaims.cshtml",
-              "RelativeToolTip": "CMCS\\Views\\Claim\\ApproveClaims.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAcwDkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-20T10:45:38.432Z"
+              "WhenOpened": "2024-11-21T12:17:18.989Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "ListLecturers.cshtml",
+              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\ListLecturers.cshtml",
+              "RelativeDocumentMoniker": "CMCS\\Views\\Account\\ListLecturers.cshtml",
+              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Account\\ListLecturers.cshtml",
+              "RelativeToolTip": "CMCS\\Views\\Account\\ListLecturers.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAEUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T11:25:07.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ViewClaims.cshtml",
+              "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\ViewClaims.cshtml",
+              "RelativeDocumentMoniker": "CMCS\\Views\\Claim\\ViewClaims.cshtml",
+              "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Views\\Claim\\ViewClaims.cshtml",
+              "RelativeToolTip": "CMCS\\Views\\Claim\\ViewClaims.cshtml",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAAwHgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T11:08:39.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "ClaimController.cs",
               "DocumentMoniker": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Controllers\\ClaimController.cs",
               "RelativeDocumentMoniker": "CMCS\\Controllers\\ClaimController.cs",
               "ToolTip": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\Controllers\\ClaimController.cs",
               "RelativeToolTip": "CMCS\\Controllers\\ClaimController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAQwDAAAAAAAAAA",
+              "ViewState": "AQIAALEAAAAAAAAAAAAAAMQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T10:43:16.128Z"
+              "WhenOpened": "2024-11-21T11:04:24.688Z",
+              "EditorCaption": ""
             }
           ]
         }

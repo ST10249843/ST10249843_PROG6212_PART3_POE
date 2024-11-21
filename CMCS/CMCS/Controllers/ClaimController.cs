@@ -5,13 +5,14 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
 
 namespace CMCS.Controllers
 {
     public class ClaimController : Controller
     {
         // Static list to simulate a data source
-        private static readonly List<Claim> Claims = new List<Claim>();
+        public static readonly List<Claim> Claims = new List<Claim>();
 
 
         /*
@@ -103,7 +104,7 @@ namespace CMCS.Controllers
         }
 
 
-        [Authorize(Roles = "Lecturer")]  // Both lecturers and admins can view claims
+        [Authorize(Roles = "Lecturer,HR")]
         public IActionResult ViewClaims()
         {
             var claims = Claims.OrderBy(c => c.DateOfSubmission).ToList();
@@ -174,6 +175,80 @@ namespace CMCS.Controllers
 
             return RedirectToAction("ApproveClaims");
         }
+
+        [HttpGet]
+        [HttpPost]
+        [Authorize(Roles = "HR")]
+        public IActionResult GenerateReport(string lecturerFirstName)
+        {
+            if (string.IsNullOrEmpty(lecturerFirstName))
+            {
+                return Content("Please provide a lecturer's first name to filter by.");
+            }
+
+            var filteredClaims = Claims
+                .Where(c => c.Name.Contains(lecturerFirstName, StringComparison.OrdinalIgnoreCase) && c.Status.Equals("Approved", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            if (filteredClaims.Count == 0)
+            {
+                return Content($"No approved claims found for lecturer: {lecturerFirstName}");
+            }
+
+            double totalHoursWorked = 0;
+            decimal totalAmount = 0;
+
+            // Generate the HTML content for the report with embedded CSS styles
+            StringBuilder htmlContent = new StringBuilder();
+            htmlContent.Append("<html><head>");
+            htmlContent.Append("<style>");
+            htmlContent.Append("body { font-family: Arial, sans-serif; background-color: #F4F1E1; color: #4E3629; margin: 20px; }");
+            htmlContent.Append("h1 { color: #6F4F32; text-align: center; font-size: 24px; }");
+            htmlContent.Append("table { width: 100%; border-collapse: collapse; margin: 20px 0; }");
+            htmlContent.Append("th, td { padding: 8px 12px; border: 1px solid #D3B29F; text-align: left; }");
+            htmlContent.Append("th { background-color: #6F4F32; color: white; font-size: 16px; }");
+            htmlContent.Append("tr:nth-child(even) { background-color: #F9F0E1; }");
+            htmlContent.Append("tr:hover { background-color: #E5D0B5; }");
+            htmlContent.Append("h3 { color: #6F4F32; font-size: 18px; }");
+            htmlContent.Append("p { font-size: 16px; color: #4E3629; }");
+            htmlContent.Append("</style>");
+            htmlContent.Append("</head><body>");
+            htmlContent.Append("<h1>Invoice Report For: " + lecturerFirstName + "</h1>");
+            htmlContent.Append("<table><thead><tr><th>Module</th><th>Hours Worked</th><th>Hourly Rate</th><th>Date</th><th>Total</th></tr></thead><tbody>");
+
+            foreach (var claim in filteredClaims)
+            {
+                htmlContent.Append("<tr>");
+                htmlContent.Append("<td>" + claim.Module + "</td>");
+                htmlContent.Append("<td>" + claim.HoursWorked + "</td>");
+                htmlContent.Append("<td>" + claim.HourlyRate.ToString("C") + "</td>");
+                htmlContent.Append("<td>" + claim.DateOfSubmission.ToString("ddd, dd MMMM yyyy") + "</td>");
+                htmlContent.Append("<td>" + claim.TotalAmount.ToString("C") + "</td>"); 
+                htmlContent.Append("</tr>");
+
+                totalHoursWorked += claim.HoursWorked;
+                totalAmount += claim.TotalAmount;
+            }
+
+            htmlContent.Append("</tbody></table>");
+
+            htmlContent.Append("<h3>Summary</h3>");
+            htmlContent.Append("<p>Total Claims Made: " + filteredClaims.Count + "</p>");
+            htmlContent.Append("<p>Subtotal Hours Worked: " + totalHoursWorked + " hours</p>");
+            htmlContent.Append("<p>Subtotal Amount: " + totalAmount.ToString("C") + "</p>");
+
+            htmlContent.Append("</body></html>");
+
+            string fileName = "Invoice_Report_" + lecturerFirstName + ".html";
+
+            // Convert the HTML content to a byte array
+            byte[] fileContent = Encoding.UTF8.GetBytes(htmlContent.ToString());
+
+            // Return the HTML content as a downloadable file
+            return File(fileContent, "text/html", fileName);
+        }
+
+
 
     }
 }

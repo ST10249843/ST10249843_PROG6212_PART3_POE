@@ -27,7 +27,7 @@ namespace CMCS.Models
         // Number of hours worked, required and must be a positive number
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "Hours worked must be a positive number.")]
-        public double HoursWorked { get; set; }
+        public int HoursWorked { get; set; }
 
         // Hourly rate for the lecturer, required and must be a positive number
         [Required]
@@ -36,13 +36,15 @@ namespace CMCS.Models
 
         // Calculated total amount (hours worked * hourly rate), displayed as 'Total Amount (R)'
         [Display(Name = "Total Amount (R)")]
-        public double TotalAmount { get; private set; }
+        public int TotalAmount { get; private set; }
 
         // Supporting document uploaded by the lecturer, if any
         public IFormFile SupportingDocument { get; set; }
 
         // Date when the claim was submitted, defaults to the current date and time
         public DateTime DateOfSubmission { get; set; } = DateTime.Now;
+        // Add UserId to associate a claim with a specific user
+
 
         // Method to calculate the total amount of the claim based on hours worked and hourly rate
         public void CalculateTotalAmount()

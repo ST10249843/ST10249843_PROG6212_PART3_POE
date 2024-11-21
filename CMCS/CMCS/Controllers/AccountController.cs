@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using SecurityClaim = System.Security.Claims.Claim;
 
 namespace CMCS.Controllers
 {
@@ -20,15 +23,17 @@ namespace CMCS.Controllers
         Availability: GeeksforGeeks, https://www.geeksforgeeks.org/c-sharp-list-class/
         */
 
-        private static List<User> Users = new List<User>();
-        private static User CurrentUser = null; 
+        public static List<User> Users = new List<User>();
+        private static User CurrentUser = null;
+        private static List<CMCS.Models.Claim> Claims = new List<CMCS.Models.Claim>();  // Your custom Claim class
+
 
         public IActionResult LoginRegister(string tab)
         {
             ViewBag.ActiveTab = tab ?? "login"; 
             return View();
         }
-
+        
 
         /*
         Author: YogeshKumar Hadiya
@@ -185,7 +190,6 @@ namespace CMCS.Controllers
         {
             TempData["ErrorMessage"] = "Access Denied! You do not have permission to access this resource.";
             return RedirectToAction("Index", "Home");
-        }
-
+        } 
     }
 }

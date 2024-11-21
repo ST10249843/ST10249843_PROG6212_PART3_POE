@@ -6,33 +6,60 @@
 
 <h2>All Claims</h2>
 
-<a href="@Url.Action("SubmitClaim", "Claim")"
-   style="background-color: #3e2723; border-color: #3e2723; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; margin-bottom: 10px;"
-   onmouseover="this.style.backgroundColor='#2c1b19'; this.style.borderColor='#2c1b19';"
-   onmouseout="this.style.backgroundColor='#3e2723'; this.style.borderColor='#3e2723';">
-    Submit a Claim
-</a>
+<!-- Display any messages passed from the controller -->
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-warning">
+        <h3>@ViewBag.Message</h3>
+    </div>
+}
+
+@if (User.IsInRole("Lecturer"))
+{
+    <a href="@Url.Action("SubmitClaim", "Claim")"
+       style="background-color: #3e2723; border-color: #3e2723; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; margin-bottom: 10px;"
+       onmouseover="this.style.backgroundColor='#2c1b19'; this.style.borderColor='#2c1b19';"
+       onmouseout="this.style.backgroundColor='#3e2723'; this.style.borderColor='#3e2723';">
+        Submit a Claim
+    </a>
+
+    <br />
+    <br />
+    <!-- Filter by Status (only visible to Lecturers) -->
+    <div class="mb-3">
+        <label for="claimStatus" class="form-label">Filter by Status:</label>
+        <select id="claimStatus" class="form-select" onchange="filterClaims()">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="denied">Denied</option>
+        </select>
+    </div>
+}
+
+<!-- Filter by First Name (only visible to HR) -->
+@if (User.IsInRole("HR"))
+{
+    <div class="mb-3">
+        <label for="lecturerFirstName" class="form-label">Filter by First Name:</label>
+        <input type="text" id="lecturerFirstName" class="form-control" oninput="filterClaims()" placeholder="Enter first name" />
+    </div>
+
+    <!-- Generate Report Button (only visible to HR) -->
+    <form method="post" action="@Url.Action("GenerateReport", "Claim")">
+        <input type="hidden" name="lecturerFirstName" id="lecturerFirstNameInput" />
+        <a href="javascript:void(0);"
+           onclick="document.getElementById('lecturerFirstNameInput').value = document.getElementById('lecturerFirstName').value; this.closest('form').submit();"
+           style="background-color: #007bff; border-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px;"
+           onmouseover="this.style.backgroundColor='#0056b3'; this.style.borderColor='#0056b3';"
+           onmouseout="this.style.backgroundColor='#007bff'; this.style.borderColor='#007bff';">
+            Generate Report
+        </a>
+    </form>
+}
 
 <br />
 <br />
-
-@*
-Author: W3Schools
-Date: N/A
-Title: How To Filter Elements
-Type: Source Code
-Availability: W3Schools, https://www.w3schools.com/howto/howto_js_filter_elements.asp
-*@
-
- <div class="mb-3">
-    <label for="claimStatus" class="form-label">Filter by Status:</label>
-    <select id="claimStatus" class="form-select" onchange="filterClaims()">
-        <option value="all">All</option>
-        <option value="pending">Pending</option>
-        <option value="approved">Approved</option>
-        <option value="denied">Denied</option>
-    </select>
-</div>
 
 <table class="table table-bordered table-striped" style="background-color: white;" id="claimsTable">
     <thead>
@@ -51,7 +78,7 @@ Availability: W3Schools, https://www.w3schools.com/howto/howto_js_filter_element
     <tbody>
         @foreach (var claim in Model)
         {
-            <tr class="claim-row" data-status="@claim.Status.ToLower()">
+            <tr class="claim-row" data-status="@claim.Status.ToLower()" data-name="@claim.Name.ToLower()">
                 <td>@claim.Name</td>
                 <td>@claim.Surname</td>
                 <td>@claim.Module</td>
@@ -66,11 +93,7 @@ Availability: W3Schools, https://www.w3schools.com/howto/howto_js_filter_element
                 <td>
                     @if (claim.SupportingDocument != null)
                     {
-                        <a href="@Url.Content("~/uploads/" + claim.SupportingDocument.FileName)" target="_blank">@claim.SupportingDocument.FileName</a>
-                    }
-                    else
-                    {
-                        <span>No Document</span>
+                        <a href="@claim.SupportingDocument" target="_blank">View Document</a>
                     }
                 </td>
             </tr>
@@ -79,16 +102,19 @@ Availability: W3Schools, https://www.w3schools.com/howto/howto_js_filter_element
 </table>
 
 <script>
+    // JavaScript to handle claim filtering based on first name
     function filterClaims() {
-        var statusFilter = document.getElementById("claimStatus").value;
-        var claimRows = document.querySelectorAll(".claim-row");
+        var firstNameFilter = document.getElementById("lecturerFirstName").value.toLowerCase();
+        var rows = document.querySelectorAll(".claim-row");
 
-        claimRows.forEach(function (row) {
-            if (statusFilter === "all" || row.getAttribute("data-status") === statusFilter) {
-                row.style.display = ""; 
+        rows.forEach(function (row) {
+            var lecturerName = row.getAttribute("data-name");
+            if (lecturerName.indexOf(firstNameFilter) !== -1) {
+                row.style.display = "";
             } else {
                 row.style.display = "none";
             }
         });
     }
 </script>
+
