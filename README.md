@@ -75,7 +75,9 @@ The CMCS caters to a diverse group of users within educational institutions, eac
 - **Academic Managers**: Serving as the final approvers, Academic Managers review verified claims and make decisions based on established guidelines. Their oversight ensures that claims are managed with full accountability and a high level of scrutiny.
   
 - **Human Resources Staff**: HR personnel manage the administrative tasks associated with maintaining lecturer data and processing claims. They utilize the CMCS to monitor claim histories, updates, and compliance reporting, promoting accuracy and efficiency in recordkeeping.
-### Automation in CMCS
+
+
+## Automation in CMCS
 
 The Contract Monthly Claim System (CMCS) incorporates various automation features to streamline the claim processing workflow, reducing manual effort and enhancing accuracy. These automated processes serve to significantly improve the efficiency of lecturers, administrators, and HR personnel:
 
