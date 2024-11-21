@@ -75,16 +75,6 @@ The CMCS caters to a diverse group of users within educational institutions, eac
 - **Academic Managers**: Serving as the final approvers, Academic Managers review verified claims and make decisions based on established guidelines. Their oversight ensures that claims are managed with full accountability and a high level of scrutiny.
   
 - **Human Resources Staff**: HR personnel manage the administrative tasks associated with maintaining lecturer data and processing claims. They utilize the CMCS to monitor claim histories, updates, and compliance reporting, promoting accuracy and efficiency in recordkeeping.
-
-
-## System Requirements
-
-### Hardware Requirements
-To ensure optimal performance of the CMCS, the following hardware specifications are recommended:
-- **Processor**: 1 GHz or faster
-- **RAM**: 2 GB or more
-- **Hard Disk Space**: Minimum of 500 MB of free space
-- **Display**: 1024 x 768 resolution or higher
 ### Automation in CMCS
 
 The Contract Monthly Claim System (CMCS) incorporates various automation features to streamline the claim processing workflow, reducing manual effort and enhancing accuracy. These automated processes serve to significantly improve the efficiency of lecturers, administrators, and HR personnel:
@@ -103,6 +93,15 @@ The Contract Monthly Claim System (CMCS) incorporates various automation feature
   HR staff have a crucial role in maintaining lecturer profiles and processing claims. To improve administrative efficiency, CMCS automates the report generation process, enabling HR to quickly generate detailed invoice reports for individual lecturers. These reports are generated with just a few clicks and include data on approved claims and the corresponding totals, reducing the time spent on manual report creation. This automated feature also ensures that HR staff can focus on more critical tasks, like compliance checks and payment processing, without having to manually compile claim histories.
 
 By automating these key functionalities, CMCS improves the overall speed and accuracy of claim processing, reducing human error, and providing a seamless user experience for lecturers, administrators, and HR staff alike. This not only streamlines workflows but also ensures a high level of accountability, making it easier for all users to stay on top of their tasks while promoting operational efficiency.
+
+## System Requirements
+
+### Hardware Requirements
+To ensure optimal performance of the CMCS, the following hardware specifications are recommended:
+- **Processor**: 1 GHz or faster
+- **RAM**: 2 GB or more
+- **Hard Disk Space**: Minimum of 500 MB of free space
+- **Display**: 1024 x 768 resolution or higher
 
 ### Software Requirements
 The following software components are necessary for the successful deployment and operation of the CMCS:
