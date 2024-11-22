@@ -15,7 +15,6 @@ namespace CMCS.Models
             : base(options)
         { }
 
-        // DbSets represent tables in the database
         public DbSet<Claim> Claims { get; set; }
         public DbSet<User> Users { get; set; }
     }

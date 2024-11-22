@@ -64,7 +64,6 @@ Availability: W3Schools, https://www.w3schools.com/css/css_website_layout.asp
                 <td>@Lecturer.Email</td>
                 <td>@Lecturer.Role</td>
                 <td>
-                    <!-- Edit and Delete buttons -->
                     <a asp-controller="Account" asp-action="EditLecturer" asp-route-id="@Lecturer.Id" class="btn btn-primary">Edit</a>
                     <a asp-controller="Account" asp-action="DeleteLecturer" asp-route-id="@Lecturer.Id" class="btn btn-danger">Delete</a>
                 </td>

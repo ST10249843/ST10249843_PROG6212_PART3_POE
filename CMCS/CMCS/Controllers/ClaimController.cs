@@ -37,7 +37,7 @@ namespace CMCS.Controllers
             Availability: Microsoft Learn, https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
             */
 
-            [Authorize(Roles = "Lecturer")]  // Only lecturers can access this
+            [Authorize(Roles = "Lecturer")]  
         public IActionResult SubmitClaim()
         {
             ViewBag.IsSuccess = (bool?)null;
@@ -58,7 +58,6 @@ namespace CMCS.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Calculate the total amount for the claim
                 claim.CalculateTotalAmount();
 
                 // Check if a supporting document is uploaded

@@ -25,7 +25,7 @@ namespace CMCS.Controllers
 
         public static List<User> Users = new List<User>();
         private static User CurrentUser = null;
-        private static List<CMCS.Models.Claim> Claims = new List<CMCS.Models.Claim>();  // Your custom Claim class
+        private static List<CMCS.Models.Claim> Claims = new List<CMCS.Models.Claim>();  
 
 
         /*
@@ -131,7 +131,7 @@ namespace CMCS.Controllers
             return View(lecturers);
         }
 
-        [Authorize(Roles = "HR")]  // Only HR can approve claims
+        [Authorize(Roles = "HR")] 
         public IActionResult EditLecturer(int id)
         {
             var user = Users.FirstOrDefault(u => u.Id == id);
@@ -143,7 +143,7 @@ namespace CMCS.Controllers
             return View(user); // Pass the user to the edit view
         }
 
-        [Authorize(Roles = "HR")]  // Only HR can approve claims
+        [Authorize(Roles = "HR")]  
         [HttpPost]
         public IActionResult EditLecturer(User updatedUser)
         {
@@ -161,7 +161,7 @@ namespace CMCS.Controllers
             return RedirectToAction("ListLecturers"); // Redirect back to the list of lecturers
         }
 
-        [Authorize(Roles = "HR")]  // Only HR can approve claims
+        [Authorize(Roles = "HR")] 
         // GET: Delete a lecturer
         public IActionResult DeleteLecturer(int id)
         {
@@ -174,7 +174,7 @@ namespace CMCS.Controllers
             return View(user); // Confirm deletion
         }
 
-        [Authorize(Roles = "HR")]  // Only HR can approve claims
+        [Authorize(Roles = "HR")]
         // POST: Confirm delete
         [HttpPost, ActionName("DeleteLecturer")]
         public IActionResult ConfirmDeleteLecturer(int id)
