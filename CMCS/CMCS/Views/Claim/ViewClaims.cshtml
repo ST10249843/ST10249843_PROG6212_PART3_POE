@@ -6,7 +6,6 @@
 
 <h2>All Claims</h2>
 
-<!-- Display any messages passed from the controller -->
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {
     <div class="alert alert-warning">
@@ -25,7 +24,6 @@
 
     <br />
     <br />
-    <!-- Filter by Status (only visible to Lecturers) -->
     <div class="mb-3">
         <label for="claimStatus" class="form-label">Filter by Status:</label>
         <select id="claimStatus" class="form-select" onchange="filterClaims()">
@@ -37,7 +35,6 @@
     </div>
 }
 
-<!-- Filter by First Name (only visible to HR) -->
 @if (User.IsInRole("HR"))
 {
     <div class="mb-3">
@@ -45,7 +42,6 @@
         <input type="text" id="lecturerFirstName" class="form-control" oninput="filterClaims()" placeholder="Enter first name" />
     </div>
 
-    <!-- Generate Report Button (only visible to HR) -->
     <form method="post" action="@Url.Action("GenerateReport", "Claim")">
         <input type="hidden" name="lecturerFirstName" id="lecturerFirstNameInput" />
         <a href="javascript:void(0);"
@@ -93,7 +89,11 @@
                 <td>
                     @if (claim.SupportingDocument != null)
                     {
-                        <a href="@claim.SupportingDocument" target="_blank">View Document</a>
+                        <a href="@Url.Content("~/uploads/" + claim.SupportingDocument.FileName)" target="_blank">@claim.SupportingDocument.FileName</a>
+                    }
+                    else
+                    {
+                        <span>No Document</span>
                     }
                 </td>
             </tr>
@@ -102,19 +102,23 @@
 </table>
 
 <script>
-    // JavaScript to handle claim filtering based on first name
     function filterClaims() {
-        var firstNameFilter = document.getElementById("lecturerFirstName").value.toLowerCase();
+        var firstNameFilter = document.getElementById("lecturerFirstName")?.value.toLowerCase() || "";
+        var statusFilter = document.getElementById("claimStatus")?.value.toLowerCase() || "all";
         var rows = document.querySelectorAll(".claim-row");
 
         rows.forEach(function (row) {
             var lecturerName = row.getAttribute("data-name");
-            if (lecturerName.indexOf(firstNameFilter) !== -1) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
+            var claimStatus = row.getAttribute("data-status");
+
+            // Check each filter independently
+            var matchesName = firstNameFilter === "" || lecturerName.includes(firstNameFilter);
+            var matchesStatus = statusFilter === "all" || claimStatus === statusFilter;
+
+            // Show the row if it matches either filter
+            row.style.display = matchesName && matchesStatus ? "" : "none";
         });
     }
+
 </script>
 

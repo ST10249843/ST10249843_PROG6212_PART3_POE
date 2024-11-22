@@ -11,10 +11,17 @@ namespace CMCS.Controllers
 {
     public class ClaimController : Controller
     {
-        // Static list to simulate a data source
         public static readonly List<Claim> Claims = new List<Claim>();
-      
-            private readonly ApplicationDbContext _context;
+
+        /*
+         Author: Microsoft
+         Date: N/A
+         Title: DbContext Class
+         Type: Documentation
+         Availability: Microsoft Learn, https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0
+         */
+
+        private readonly ApplicationDbContext _context;
 
             public ClaimController(ApplicationDbContext context)
             {
@@ -203,6 +210,15 @@ namespace CMCS.Controllers
 
             double totalHoursWorked = 0;
             decimal totalAmount = 0;
+
+
+            /*
+            Author: Mozilla
+            Date: N/A
+            Title: Element.append() - Web APIs
+            Type: Documentation
+            Availability: MDN Web Docs, https://developer.mozilla.org/en-US/docs/Web/API/Element/append
+            */
 
             // Generate the HTML content for the report with embedded CSS styles
             StringBuilder htmlContent = new StringBuilder();

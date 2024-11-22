@@ -27,6 +27,15 @@ namespace CMCS.Controllers
         private static User CurrentUser = null;
         private static List<CMCS.Models.Claim> Claims = new List<CMCS.Models.Claim>();  // Your custom Claim class
 
+
+        /*
+        Author: Microsoft
+        Date: N/A
+        Title: DbContext Class
+        Type: Documentation
+        Availability: Microsoft Learn, https://learn.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0
+        */
+
         private readonly ApplicationDbContext _context;
 
         public AccountController(ApplicationDbContext context)

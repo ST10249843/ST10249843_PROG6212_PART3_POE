@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sJYKSQYVoucMOhRXdpUhrIpOqpqz1QkmkVFiOrBk1SM=",
+  "Hash": "eQIqiHxDPjAKrwnzItukn7D0Z+vk0aCwF56xtqTTPnw=",
   "Source": "CMCS",
   "BasePath": "_content/CMCS",
   "Mode": "Default",
@@ -2542,6 +2542,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\ST10249843_ADDB7311_A2.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\wwwroot\\uploads\\ST10249843_PROG6212_POE_README.pdf",
+      "SourceId": "CMCS",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\wwwroot\\",
+      "BasePath": "_content/CMCS",
+      "RelativePath": "uploads/ST10249843_PROG6212_POE_README.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ST10249843_PROG6212_POE_README.pdf"
     },
     {
       "Identity": "C:\\Users\\sajan\\Desktop\\2024\\SEM 2\\PROG 6212\\POE\\CMCS\\CMCS\\wwwroot\\uploads\\ST10249843_PROG6212_PROJECTPLAN.pdf",
